@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Youtrack-Jira Link Extension",
   "version": "1.0",
-  "description": "Добавляет ссылку на Jira рядом с номером задачи в Youtrack",
+  "description": "Добавляет ссылку на Jira или таблицу ошибок рядом с номером задачи в Youtrack",
   "permissions": [
     "activeTab",
     "tabs"
@@ -18,7 +18,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://youtrack.ubic.tech/issue/ED-*"],
+      "matches": ["https://youtrack.ubic.tech/issue/*"],
       "js": ["contentScript.js"]
     }
   ],
