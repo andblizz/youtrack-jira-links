@@ -58,6 +58,7 @@ function addJiraLink() {
       // Регулярные выражения и поиск номеров задач и строк
       const numRegex = /^\d+$/;
       const orgRegex = /^EDDEVORG-\d+$/;
+      const expRegex = /^EDEXP-\d+$/;
       const strRegex = /стр\. (\d+)(?:-(\d+))?/i;
 
       taskNumbers.forEach((num, index) => {
@@ -66,6 +67,8 @@ function addJiraLink() {
         if (numRegex.test(num)) {
           link = createDOMElement('a', {href: `${JIRA_BASE_URL}EDDEV-${num}`, target: '_blank', textContent: `EDDEV-${num}`});
         } else if (orgRegex.test(num)) {
+          link = createDOMElement('a', {href: `${JIRA_BASE_URL}EDEXP-${num}`, target: '_blank', textContent: `EDEXP-${num}`});
+        } else if (expRegex.test(num)) {
           link = createDOMElement('a', {href: `${JIRA_BASE_URL}${num}`, target: '_blank', textContent: num});
         } else {
           const match = strRegex.exec(num);
