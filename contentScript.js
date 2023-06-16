@@ -67,7 +67,7 @@ function addJiraLink() {
         if (numRegex.test(num)) {
           link = createDOMElement('a', {href: `${JIRA_BASE_URL}EDDEV-${num}`, target: '_blank', textContent: `EDDEV-${num}`});
         } else if (orgRegex.test(num)) {
-          link = createDOMElement('a', {href: `${JIRA_BASE_URL}EDEXP-${num}`, target: '_blank', textContent: `EDEXP-${num}`});
+          link = createDOMElement('a', {href: `${JIRA_BASE_URL}${num}`, target: '_blank', textContent: num});
         } else if (expRegex.test(num)) {
           link = createDOMElement('a', {href: `${JIRA_BASE_URL}${num}`, target: '_blank', textContent: num});
         } else {
@@ -78,6 +78,7 @@ function addJiraLink() {
             link = createDOMElement('a', {href: `${SHEET_BASE_URL}${rowStart}:${rowEnd}`, target: '_blank', textContent: num});
           }
         }
+
 
         if (link) {
           link.style.color = '#70b1e6';
