@@ -59,7 +59,7 @@ function addJiraLink() {
       const numRegex = /^\d+$/;
       const orgRegex = /^EDDEVORG-\d+$/;
       const expRegex = /^EDEXP-\d+$/;
-      const strRegex = /стр\. (\d+)(?:-(\d+))?/i;
+      const strRegex = /стр\.?\s*((?:\d+)(?:-\d+)?)/i;
 
       taskNumbers.forEach((num, index) => {
         let link;
@@ -73,10 +73,9 @@ function addJiraLink() {
         } else {
           const match = strRegex.exec(num);
           if (match) {
-            const rowStart = parseInt(match[1], 10) + 1;
-            const rowEnd = match[2] ? parseInt(match[2], 10) + 1 : rowStart;
-            link = createDOMElement('a', {href: `${SHEET_BASE_URL}${rowStart}:${rowEnd}`, target: '_blank', textContent: num});
-          }
+            const rowNumbers = match[1].split('-').map(n => parseInt(n, 10) + 1);
+            link = createDOMElement('a', {href: `${SHEET_BASE_URL}${rowNumbers[0]}:${rowNumbers[1] || rowNumbers[0]}`, target: '_blank', textContent: num});
+          }          
         }
 
 
