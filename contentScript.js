@@ -1,5 +1,5 @@
 // Определение констант
-const JIRA_BASE_URL = 'https://jira.mos.ru/browse/';
+const JIRA_BASE_URL = 'https://task.mos-team.ru/browse/';
 const SHEET_BASE_URL = 'https://docs.google.com/spreadsheets/d/1EolYL1o0C0YQ8iMI-l2VjDILkU1ITBY8/edit#gid=1730455537&range=';
 
 // Функция для создания DOM элемента
